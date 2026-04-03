@@ -269,7 +269,7 @@ export function EpicHeroBackground() {
       window.removeEventListener("mousemove", handleMouseMove)
       cancelAnimationFrame(animationId)
     }
-  }, [])
+  }, [mouseX, mouseY])
 
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -298,7 +298,7 @@ export function EpicHeroBackground() {
           
           {/* Texto principal */}
           <div 
-            className="font-inter text-[18vw] font-thin tracking-[0.15em] text-[#0a0a0a] whitespace-nowrap relative"
+            className="font-inter text-[18vw] font-thin tracking-[0.15em] text-[#F5F5F5] whitespace-nowrap relative"
             style={{
               textShadow: "0 0 80px rgba(245,245,245,0.1), 0 0 120px rgba(245,245,245,0.05)",
               maskImage: "linear-gradient(to bottom, transparent 10%, black 40%, black 60%, transparent 90%)",

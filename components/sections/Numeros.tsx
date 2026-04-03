@@ -57,7 +57,7 @@ interface MetricCardProps {
   highlight?: string
 }
 
-function MetricCard({ value, targetValue, label, prefix = "", suffix = "", index, highlight }: MetricCardProps) {
+function MetricCard({ value: _value, targetValue, label, prefix = "", suffix = "", index, highlight }: MetricCardProps) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: "-10%" })
   const [isHovered, setIsHovered] = useState(false)
