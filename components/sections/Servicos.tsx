@@ -108,7 +108,7 @@ function ROICalculator() {
         <div className="relative h-32 overflow-hidden">
           {/* Barras do gráfico */}
           <div className="flex h-full items-end justify-between gap-2">
-            {[3, 6, 9, 12].map((month, i) => {
+            {[3, 6, 9, 12].map((month) => {
               const revenue = monthlyRevenue * month
               const height = annualRevenue > 0 
                 ? Math.max(8, Math.min((revenue / annualRevenue) * 100, 95)) 

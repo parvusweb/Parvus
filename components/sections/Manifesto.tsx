@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "@/components/framer/motion-elements"
-import { Overline } from "@/components/ui/Overline"
 import { SpinningSphereBackground } from "@/components/ui/spinning-sphere-background"
 
 const ease = [0.16, 1, 0.3, 1] as const

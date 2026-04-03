@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { motion, useInView, AnimatePresence } from "@/components/framer/motion-elements"
-import Image from "next/image"
 import Link from "next/link"
 import { useRef } from "react"
 import { whatsappHref } from "@/lib/site"
@@ -152,7 +151,7 @@ function MetricBadge({ label, value, negative, highlight }: { label: string; val
   )
 }
 
-function ComparisonSlider({ project, isActive }: { project: Project; isActive: boolean }) {
+function ComparisonSlider({ project }: { project: Project }) {
   const [showAfter, setShowAfter] = useState(false)
   
   return (
@@ -264,7 +263,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </div>
 
       {/* Comparison Slider */}
-      <ComparisonSlider project={project} isActive={isHovered} />
+      <ComparisonSlider project={project} />
 
       {/* Client Name */}
       <h3 className="mb-2 font-geist text-lg font-semibold text-[#F5F5F5]">
@@ -327,7 +326,7 @@ export function AntesDepois() {
           Antes e depois
         </h2>
         <p className="text-base leading-relaxed text-[#888888]">
-          O que mudou quando esses negócios deixaram de ter "só um site" e passaram
+          O que mudou quando esses negócios deixaram de ter &ldquo;só um site&rdquo; e passaram
           a ter uma máquina de conversão.
         </p>
       </motion.div>
