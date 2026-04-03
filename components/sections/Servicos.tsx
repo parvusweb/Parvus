@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion } from "@/components/framer/motion-elements"
 import { Overline } from "@/components/ui/Overline"
 import { ParvusButton } from "@/components/ui/ParvusButton"
+import { ROIGraph } from "@/components/ui/ROIGraph"
 import { whatsappHref } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -102,42 +103,12 @@ function ROICalculator() {
         </div>
       </div>
 
-      {/* Gráfico visual simplificado */}
-      <div className="mt-8 rounded-xl border border-[#1E1E1E] bg-[#080808] p-6">
-        <p className="mb-4 text-sm text-[#888]">Projeção de crescimento (12 meses)</p>
-        <div className="relative h-32 overflow-hidden">
-          {/* Barras do gráfico */}
-          <div className="flex h-full items-end justify-between gap-2">
-            {[3, 6, 9, 12].map((month) => {
-              const revenue = monthlyRevenue * month
-              const height = annualRevenue > 0 
-                ? Math.max(8, Math.min((revenue / annualRevenue) * 100, 95)) 
-                : 8
-              return (
-                <div key={month} className="flex flex-1 flex-col items-center gap-2">
-                  <div
-                    className="w-full min-h-[8px] rounded-t-md bg-gradient-to-t from-green-500/40 to-green-400/80"
-                    style={{ 
-                      height: `${height}%`,
-                      transition: 'height 0.5s ease-out'
-                    }}
-                  />
-                  <span className="text-xs text-[#666]">M{month}</span>
-                </div>
-              )
-            })}
-          </div>
-          {/* Linha do investimento */}
-          <div
-            className="absolute left-0 right-0 border-t-2 border-dashed border-red-400/50"
-            style={{ bottom: `${(totalInvestment / annualRevenue) * 100}%` }}
-          >
-            <span className="absolute -top-5 right-0 text-xs text-red-400">
-              Investimento
-            </span>
-          </div>
-        </div>
-      </div>
+      {/* Gráfico de ROI animado */}
+      <ROIGraph 
+        monthlyRevenue={monthlyRevenue}
+        totalInvestment={totalInvestment}
+        annualRevenue={annualRevenue}
+      />
     </motion.div>
   )
 }
