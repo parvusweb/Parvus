@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/Navbar"
 import { Hero } from "@/components/sections/Hero"
+import { VideoHero } from "@/components/sections/VideoHero"
 import { ScrollDemo } from "@/components/sections/ScrollDemo"
 import { Marquee } from "@/components/sections/Marquee"
 import { Manifesto } from "@/components/sections/Manifesto"
@@ -21,6 +22,7 @@ export default function Home() {
       <Analytics />
       <Navbar />
       <Hero />
+      <VideoHero />
       <ScrollDemo />
       <Marquee />
       <Manifesto />
