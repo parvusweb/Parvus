@@ -67,6 +67,9 @@ export const ScrollExpandMedia = ({
   const titleFirstX = useTransform(textTranslateX, (v) => -v + "vw");
   const titleRestX = useTransform(textTranslateX, (v) => v + "vw");
   const subtitleX = useTransform(textTranslateX, (v) => -v * 0.5 + "vw");
+  
+  // Opacity para scroll hint
+  const scrollHintOpacity = useTransform(scrollProgress, [0, 0.3], [1, 0]);
 
   // Prevent hydration mismatch
   if (!isMounted) {
@@ -176,7 +179,7 @@ export const ScrollExpandMedia = ({
             {scrollToExpand && (
               <motion.div
                 className="absolute bottom-32 flex flex-col items-center gap-3"
-                style={{ opacity: useTransform(scrollProgress, [0, 0.3], [1, 0]) }}
+                style={{ opacity: scrollHintOpacity }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.5 }}
